@@ -1,6 +1,8 @@
 #include <iostream>
 
+#include "Math/Vec3.h"
+
 int main()
 {
-	std::cout << "Hello World" << std::endl;
+	vec3 vec;
 }
