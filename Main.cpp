@@ -1,5 +1,4 @@
 #include <iostream>
-#include <numeric>
 
 #include <Image/PPM.h>
 
@@ -15,7 +14,7 @@ int main(int argc, char** argv)
             row[j] = multiplier * static_cast<u8>(j);
         }
     }
-    image.write(std::cout);
+    std::cout << image;
 
     return EXIT_SUCCESS;
 }
