@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\PPM">
+      <UniqueIdentifier>{81d17942-75b8-4131-999c-306cef2e7015}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\PPM">
+      <UniqueIdentifier>{633442fe-c08b-4295-8323-44aa7707e1c1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Main.cpp">
@@ -21,10 +27,25 @@
     <ClCompile Include="Source\Math\Vec3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Image\PPM\Image.cpp">
+      <Filter>Source Files\PPM</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Image\PPM\Pixel.cpp">
+      <Filter>Source Files\PPM</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Math\Vec3.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Types.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Image\PPM\Pixel.h">
+      <Filter>Header Files\PPM</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Image\PPM\Image.h">
+      <Filter>Header Files\PPM</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

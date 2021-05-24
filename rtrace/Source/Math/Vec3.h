@@ -6,19 +6,24 @@
 
 using std::sqrt;
 
-class vec3
-{
+class vec3 {
 public:
-	vec3() : v{ 0,0,0 } {}
-	vec3(double x, double y, double z) : v{ x, y, z } {}
+    vec3()
+        : v { 0, 0, 0 }
+    {
+    }
+    vec3(double x, double y, double z)
+        : v { x, y, z }
+    {
+    }
 
-	double x() const { return v[0]; }
-	double y() const { return v[1]; }
-	double z() const { return v[2]; }
+    double x() const { return v[0]; }
+    double y() const { return v[1]; }
+    double z() const { return v[2]; }
 
-// Point..?
+    // Point..?
 public:
-	double v[3];
+    double v[3];
 };
 
 #endif
