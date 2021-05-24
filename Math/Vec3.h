@@ -6,53 +6,29 @@
 
 using std::sqrt;
 
-class vec3 {
+class Vec3 {
 public:
-    vec3()
-        : v { 0, 0, 0 }
-    {
-    }
-    vec3(double x, double y, double z)
-        : v { x, y, z }
-    {
-    }
+    Vec3();
+    Vec3(double x, double y, double z);
 
-    double x() const { return v[0]; }
-    double y() const { return v[1]; }
-    double z() const { return v[2]; }
+    inline const double x() const;
+    inline const double y() const;
+    inline const double z() const;
 
-    double operator[](int i) const { return v[i]; }
-    double& operator[](int i) { return v[i]; }
+    inline const double operator[](int i) const;
+    inline double& operator[](int i);
 
-    vec3 operator-() const {
-        return vec3(-v[0], -v[1], -v[2]);
-    }
+    const Vec3 operator-() const;
+    Vec3& operator+=(const Vec3& v2);
+    Vec3& operator*=(const double s);
+    Vec3 operator/=(const double s);
 
-    vec3& operator+=(const vec3& v2) {
-        v[0] += v2.v[0];
-        v[1] += v2.v[1];
-        v[2] += v2.v[2];
-        return *this;
-    }
+    const double length() const;
+    const double length_squared() const;
 
-    vec3& operator*=(const double s) {
-        v[0] *= s;
-        v[1] *= s;
-        v[2] *= s;
-        return *this;
-    }
-
-    vec3 operator/=(const double s) {
-        return *this *= 1 / s;
-    }
-
-    double length() const {
-        return sqrt(length_squared());
-    }
-
-    double length_squared() const {
-        return v[0] * v[0] + v[1] * v[1] + v[2] * v[2];
-    }
+    static inline double dot(const Vec3& v1, const Vec3& v2);
+    static inline Vec3 cross(const Vec3& v1, const Vec3& v2);
+    static inline Vec3 unit(Vec3& v1);
 
 public:
     double v[3];
@@ -60,45 +36,11 @@ public:
 
 // Inlined member functions
 
-inline vec3 operator+(const vec3& v1, const vec3& v2) {
-    return vec3(v1.v[0] + v2.v[0], v1.v[1] + v2.v[1], v1.v[2] + v2.v[2]);
-}
-
-inline vec3 operator-(const vec3& v1, const vec3& v2) {
-    return vec3(v1.v[0] - v2.v[0], v1.v[1] - v2.v[1], v1.v[2] - v2.v[2]);
-}
-
-inline vec3 operator*(const vec3& v1, const vec3& v2) {
-    return vec3(v1.v[0] * v2.v[0], v1.v[1] * v2.v[1], v1.v[2] * v2.v[2]);
-}
-
-inline vec3 operator*(double s, const vec3& v1) {
-    return vec3(s * v1.v[0], s * v1.v[1], s * v1.v[2]);
-}
-
-inline vec3 operator*(const vec3& v1, double s) {
-    return s * v1;
-}
-
-inline vec3 operator/(vec3 v1, double s) {
-    return (1 / s) * v1;
-}
-
-// Dot product
-inline double dot(const vec3 &v1, const vec3 &v2) {
-    return (v1.v[0] * v2.v[0] + v1.v[1] * v2.v[1] + v1.v[2] * v2.v[2]);
-}
-
-// Cross product
-inline vec3 cross(const vec3& v1, const vec3& v2) {
-    return vec3(v1.v[1] * v2.v[2] - v1.v[2] * v2.v[1],
-        v1.v[1] * v2.v[0] - v1.v[0] * v2.v[2],
-        v1.v[0] * v2.v[1] - v1.v[1] * v2.v[0]);
-}
-
-// Unit vector
-inline vec3 unit(vec3 v1) {
-    return v1 / v1.length();
-}
+inline Vec3 operator+(const Vec3& v1, const Vec3& v2);
+inline Vec3 operator-(const Vec3& v1, const Vec3& v2);
+inline Vec3 operator*(const Vec3& v1, const Vec3& v2);
+inline Vec3 operator*(double s, const Vec3& v1);
+inline Vec3 operator*(const Vec3& v1, double s);
+inline Vec3 operator/(Vec3 v1, double s);
 
 #endif
