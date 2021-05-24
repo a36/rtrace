@@ -21,7 +21,7 @@ public:
     u8& g() { return m_g; }
 
     const u8 b() const { return m_b; }
-    u8 b() { return m_b; }
+    u8& b() { return m_b; }
 
     static const Pixel Black;
     static const Pixel White;

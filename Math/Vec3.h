@@ -30,7 +30,7 @@ public:
 
     static double dot(const Vec3& v1, const Vec3& v2);
     static Vec3 cross(const Vec3& v1, const Vec3& v2);
-    static Vec3 unit(Vec3& v1);
+    static Vec3 unit(Vec3 v1);
 
 public:
     double v[3];

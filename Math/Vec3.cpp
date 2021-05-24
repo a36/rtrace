@@ -73,7 +73,7 @@ Vec3 Vec3::cross(const Vec3& v1, const Vec3& v2)
         v1.v[0] * v2.v[1] - v1.v[1] * v2.v[0]);
 }
 
-Vec3 Vec3::unit(Vec3& v1)
+Vec3 Vec3::unit(Vec3 v1)
 {
     return v1 / v1.length();
 }
