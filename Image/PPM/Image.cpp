@@ -18,6 +18,11 @@ Image::Image(const u32 width, const u32 height)
     applyResize();
 }
 
+void Image::setPixel(u32 x, u32 y, Pixel p)
+{
+    m_raster[y][x] = p;
+}
+
 std::ostream& Image::write(std::ostream& to) const
 {
     // Write header
@@ -33,11 +38,6 @@ std::ostream& Image::write(std::ostream& to) const
     }
 
     return to;
-}
-
-void Image::setPixel(u32 x, u32 y, Pixel p)
-{
-    m_raster[y][x] = p;
 }
 
 void Image::applyResize()

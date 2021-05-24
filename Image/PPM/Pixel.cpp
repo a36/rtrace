@@ -21,11 +21,19 @@ Pixel& Pixel::operator=(const u8 other)
     return *this;
 }
 
+void Pixel::set(const u32 col)
+{
+    m_r = col & 0xFF;
+    m_g = (col >> 8) & 0xFF;
+    m_b = (col >> 16) & 0xFF;
+}
+
 std::ostream& Pixel::write(std::ostream& to) const
 {
     to << (u32)m_r << " " << (u32)m_g << " " << (u32)m_b;
     return to;
 }
+
 } // namespace ppm
 
 std::ostream& operator<<(std::ostream& to, const ppm::Pixel& from)

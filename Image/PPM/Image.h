@@ -3,7 +3,7 @@
 #include <vector>
 
 namespace ppm {
-struct Pixel;
+class Pixel;
 
 class Image {
 public:
@@ -11,8 +11,8 @@ public:
     Image(const u32 width, const u32 height);
     ~Image() = default;
     
-    std::ostream& write(std::ostream& to) const;
     void setPixel(u32 x, u32 y, Pixel p);
+    std::ostream& write(std::ostream& to) const;
 
     inline std::vector<std::vector<Pixel>>& getRaster() { return m_raster; }
     inline const std::vector<std::vector<Pixel>>& getRaster() const { return m_raster; }
