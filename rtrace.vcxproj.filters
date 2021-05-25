@@ -95,9 +95,6 @@
     <ClCompile Include="Image\PPM\Pixel.cpp">
       <Filter>Source Files\Image\PPM</Filter>
     </ClCompile>
-    <ClCompile Include="Tests\Vec3Test.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Math\Ray.cpp">
       <Filter>Source Files\Math</Filter>
     </ClCompile>

@@ -171,7 +171,6 @@
     <ClCompile Include="Scene\Object.cpp" />
     <ClCompile Include="Scene\SphereObject.cpp" />
     <ClCompile Include="Scene\World.cpp" />
-    <ClCompile Include="Tests\Vec3Test.cpp" />
     <ClCompile Include="Util\Color.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
