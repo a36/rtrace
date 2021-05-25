@@ -14,8 +14,8 @@ public:
     inline const Vec3& getOrigin() const { return m_origin; }
     inline const Vec3& getDirection() const { return m_direction; }
 
-    Object* getIntersection() { return m_intersect; }
-    const Object* getIntersection() const { return m_intersect; }
+    inline Object* getIntersection() { return m_intersect; }
+    inline const Object* getIntersection() const { return m_intersect; }
 
 private:
     Vec3 m_origin;

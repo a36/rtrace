@@ -13,8 +13,8 @@ public:
     // Override this function
     virtual bool intersect(Ray&) = 0;
 
-    Vec3& position() { return m_position; }
-    const Vec3& position() const { return m_position; }
+    inline Vec3& position() { return m_position; }
+    inline const Vec3& position() const { return m_position; }
 
 protected:
     Vec3 m_position;

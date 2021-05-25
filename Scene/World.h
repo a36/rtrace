@@ -15,7 +15,8 @@ public:
 
     void render(ppm::Image& to);
 
-    std::vector<Object*>& getObjects() { return m_objects; }
+    inline std::vector<Object*>& getObjects() { return m_objects; }
+    inline const std::vector<Object*>& getObjects() const { return m_objects; }
 
 private:
     std::vector<Object*> m_objects;
