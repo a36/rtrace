@@ -1,10 +1,9 @@
 #include <iostream>
 
 #include <Image/PPM.h>
-#include <Math/Vec3.h>
 
 int main(int argc, char** argv)
-{
+{    
     // Testing image, generates a gradient
     ppm::Image image(256, 256);
     auto& raster = image.getRaster();
