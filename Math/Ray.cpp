@@ -1,6 +1,8 @@
 #include <Math/Ray.h>
 
 Ray::Ray()
+    : m_origin(0, 0, 0)
+    , m_direction(0, 0, -1)
 {
 }
 
