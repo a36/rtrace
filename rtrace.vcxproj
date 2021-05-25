@@ -152,10 +152,13 @@
     <ClInclude Include="Image\PPM\Pixel.h" />
     <ClInclude Include="Math\Ray.h" />
     <ClInclude Include="Math\Vec3.h" />
+    <ClInclude Include="Scene\Camera.h" />
+    <ClInclude Include="Scene\Light.h" />
     <ClInclude Include="Scene\Object.h" />
     <ClInclude Include="Scene\SphereObject.h" />
     <ClInclude Include="Scene\World.h" />
     <ClInclude Include="Types.h" />
+    <ClInclude Include="Util\Color.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Image\PPM\Image.cpp" />
@@ -163,10 +166,13 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Math\Ray.cpp" />
     <ClCompile Include="Math\Vec3.cpp" />
+    <ClCompile Include="Scene\Camera.cpp" />
+    <ClCompile Include="Scene\Light.cpp" />
     <ClCompile Include="Scene\Object.cpp" />
     <ClCompile Include="Scene\SphereObject.cpp" />
     <ClCompile Include="Scene\World.cpp" />
     <ClCompile Include="Tests\Vec3Test.cpp" />
+    <ClCompile Include="Util\Color.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

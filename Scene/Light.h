@@ -5,18 +5,21 @@
 #include <Util/Color.h>
 
 class Light {
-private:
-    Color m_color;
-    float m_intensity;
-
 public:
-    Light();
-    Light(const Color& color, const float intensity);
+    Light() = default;
+    Light(const Color<float>& color, const float intensity);
 
-    virtual ~Light();
+    virtual ~Light() = default;
 
-    const Color& getColor() const;
-    const float& getIntensity() const;
+    inline auto& getColor() { return m_color; }
+    inline const auto& getColor() const { return m_color; }
+
+    inline float& getIntensity() { return m_intensity; }
+    inline const float& getIntensity() const { return m_intensity; }
+
+private:
+    Color<float> m_color;
+    float m_intensity;
 };
 
 #endif

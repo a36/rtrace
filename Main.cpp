@@ -3,6 +3,7 @@
 #include <Scene/World.h>
 #include <Scene/SphereObject.h>
 #include <Image/PPM.h>
+#include <Util/Color.h>
 
 int main(int argc, char** argv)
 {    

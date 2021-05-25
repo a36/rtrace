@@ -1,29 +1,45 @@
 #ifndef _COLOR_H
 #define _COLOR_H
 
+#include <concepts>
+
+template <typename T>
+concept ColorType = std::floating_point<T>;
+
+template <ColorType T>
 class Color {
 public:
-    float m_r, m_g, m_b;
+    T m_r = 0;
+    T m_g = 0;
+    T m_b = 0;
 
 public:
-    Color();
-    Color(float r, float g, float b);
+    Color() = default;
+    Color(T r, T g, T b)
+        : m_r(r)
+        , m_g(g)
+        , m_b(b)
+    {
+    }
+
+    ~Color() = default;
+
+    inline Color operator+(const Color& c2)
+    {
+        return Color(m_r + c2.m_r, m_g + c2.m_g, m_b + c2.m_b);
+    }
+
+    inline Color operator*(const float s)
+    {
+        return Color(m_r * s, m_g * s, m_b * s);
+    }
+
+    inline Color operator/(const float s)
+    {
+        return Color(m_r / s, m_g / s, m_b / s);
+    }
 };
 
-// Add two colors
-inline Color operator+(const Color& c1, const Color& c2) {
-    return (Color(c1.m_r + c2.m_r, c1.m_g + c2.m_g, c1.m_b + c2.m_b));
-}
-
-// Multiply colors by scalar
-inline Color operator*(const Color& c1, const float s) {
-    return (Color(c1.m_r * s, c1.m_g * s, c1.m_b * s));
-}
-
-// Divide colors by float
-inline Color operator/(const Color& c1, const float s) {
-    return (Color(c1.m_r / s, c1.m_g / s, c1.m_b / s));
-}
 
 #endif
 
