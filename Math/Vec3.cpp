@@ -46,9 +46,11 @@ Vec3 Vec3::operator/=(const double s)
     return *this *= 1 / s;
 }
 
+// TODO: May need to perform a check such that length > 0 to do division.
+//       Could also maybe just set *this = unit(v) since it's the same calculation.
 Vec3& Vec3::normalise()
 {
-    return *this = *this * sqrt(v[0] * v[0] + v[1] * v[1] + v[2] * v[2]);
+    return *this = *this / length();
 }
 
 const double Vec3::length() const
