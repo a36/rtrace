@@ -11,7 +11,7 @@ public:
     virtual ~Object() = default;
 
     // Override this function
-    virtual bool intersect(Ray&) = 0;
+    virtual bool intersect(Ray r) = 0;
 
     inline Vec3& position() { return m_position; }
     inline const Vec3& position() const { return m_position; }

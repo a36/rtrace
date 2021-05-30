@@ -13,7 +13,7 @@ public:
     virtual ~SphereObject() = default;
 
     // Override this function
-    bool intersect(Ray&) override;
+    bool intersect(Ray r) override;
 
 private:
     double m_radius;
