@@ -15,6 +15,8 @@ public:
     // Override this function
     bool intersect(Ray r) override;
 
+    inline const double radiusSqr() const { return m_radius * m_radius; }
+    inline const double radius() const { return m_radius; }
 private:
     double m_radius;
 };
