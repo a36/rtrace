@@ -14,7 +14,8 @@ public:
     World() = default;
     ~World() = default;
 
-    void render(ppm::Image& to);
+    // void render(ppm::Image& to);
+    void render(ppm::Image& to, Camera& camera);
 
     inline std::vector<Object*>& getObjects() { return m_objects; }
     inline const std::vector<Object*>& getObjects() const { return m_objects; }
