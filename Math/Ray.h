@@ -9,6 +9,7 @@
 class Ray {
 public:
     Ray() = default;
+    Ray(Vec3 direction);
     Ray(Vec3 origin, Vec3 direction);
     ~Ray() = default;
 
