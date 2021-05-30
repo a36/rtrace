@@ -8,7 +8,7 @@ SphereObject::SphereObject(double r, Vec3 position)
     m_position = position;
 }
 
-bool SphereObject::intersect(Ray r)
+bool SphereObject::intersect(Ray& r)
 {
     Vec3 oc = m_position - r.getOrigin();
 
@@ -20,7 +20,15 @@ bool SphereObject::intersect(Ray r)
     if (b > radiusSqr())
         return false;
 
-    double c = sqrt(m_radius * m_radius - b); // Will use c in World.cpp to calculate distance
+    // Will use c in World.cpp to calculate distance
+    double c = sqrt(m_radius * m_radius - b);
+
+    // If need be, you can add member variables to the Ray class
+    // Given they will be used across all of the objects, so shared values across
+    // The calculations
+    
+    // Set the reference of the intersection to this object
+    r.getIntersection() = this;
 
     return true;
 }
