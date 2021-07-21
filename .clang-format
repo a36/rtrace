@@ -1,4 +1,2 @@
-﻿---
-BasedOnStyle: WebKit
-
-...
+﻿BasedOnStyle: WebKit
+AlignTrailingComments:  true
