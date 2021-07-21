@@ -20,8 +20,8 @@ public:
     inline const Object* getIntersection() const { return m_intersect; }
 
 private:
-    Vec3 m_origin = {0, 0, 0};
-    Vec3 m_direction = {0, 0, -1};
+    Vec3 m_origin = { 0, 0, 0 };
+    Vec3 m_direction = { 0, 0, -1 };
 
     Object* m_intersect = nullptr;
 };

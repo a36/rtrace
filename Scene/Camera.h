@@ -1,8 +1,8 @@
 #ifndef _CAMERA_H
 #define _CAMERA_H
 
-#include <Types.h>
 #include <Math/Vec3.h>
+#include <Types.h>
 
 class Camera {
 public:
@@ -22,8 +22,8 @@ public:
     inline const double getAngle() const { return tan(3.14159264358 * 0.5 * m_fov / 180.); } // Could set up a macro or whatever for Pi
 
 private:
-    u32 m_width = 256; 
-    u32 m_height = 256; 
+    u32 m_width = 256;
+    u32 m_height = 256;
     Vec3 m_origin = { 0, 0, 0 }; // Should be defaulted to (0,0,0)
     Vec3 m_rotation = { 0, 0, 0 };
     double m_fov = 50;

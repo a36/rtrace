@@ -1,8 +1,8 @@
 #include <Scene/World.h>
 
-#include <Scene/Camera.h>
-#include <Math/Ray.h>
 #include <Image/PPM.h>
+#include <Math/Ray.h>
+#include <Scene/Camera.h>
 
 void World::render(ppm::Image& to, Camera& camera)
 {
@@ -13,7 +13,7 @@ void World::render(ppm::Image& to, Camera& camera)
             // Access using raster[i][j]
             double x = (2 * ((j + 0.5) * camera.getInvWidth())) * camera.getAngle();
             double y = (1 - 2 * ((i + 0.5) * camera.getInvHeight())) * camera.getAngle();
-            Vec3 rayDirection = {x, y, -1};
+            Vec3 rayDirection = { x, y, -1 };
             rayDirection.normalise();
             Ray primaryRay = Ray(rayDirection); // Initialize primary ray
 
@@ -24,12 +24,11 @@ void World::render(ppm::Image& to, Camera& camera)
             for (int k = 0; k < m_objects.size(); ++k) {
                 double t1 = 0, t2 = 0;
                 if (m_objects[k]->intersect(primaryRay, t1, t2)) {
-                    ppm::Pixel p = ppm::Pixel(1*(2*t2), 1*(1.5*t1), 0);
+                    ppm::Pixel p = ppm::Pixel(1 * (2 * t2), 1 * (1.5 * t1), 0);
                     // to.setPixel(i, j, p);
                     raster[i][j] = p;
                 }
             }
-
         }
     }
 }

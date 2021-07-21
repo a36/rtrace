@@ -1,5 +1,5 @@
-#include <Scene/SphereObject.h>
 #include <Math/Ray.h>
+#include <Scene/SphereObject.h>
 
 SphereObject::SphereObject(double r, Vec3 position)
     : m_radius(r)
@@ -16,7 +16,7 @@ bool SphereObject::intersect(Ray& r, double& t1, double& t2)
     if (a < 0)
         return false;
 
-    double b = Vec3::dot(oc, oc) - a*a;
+    double b = Vec3::dot(oc, oc) - a * a;
     if (b > radiusSqr())
         return false;
 
@@ -28,7 +28,7 @@ bool SphereObject::intersect(Ray& r, double& t1, double& t2)
     // If need be, you can add member variables to the Ray class
     // Given they will be used across all of the objects, so shared values across
     // The calculations
-    
+
     // Set the reference of the intersection to this object
     r.getIntersection() = this;
 

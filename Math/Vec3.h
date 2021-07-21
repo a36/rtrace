@@ -65,5 +65,4 @@ inline Vec3 operator/(Vec3 v1, double s)
     return (1 / s) * v1;
 }
 
-
 #endif

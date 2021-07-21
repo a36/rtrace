@@ -1,12 +1,12 @@
 #ifndef _WORLD_H
 #define _WORLD_H
 
-#include <vector>
 #include <memory>
+#include <vector>
 
-#include <Scene/Object.h>
-#include <Scene/Camera.h>
 #include <Image/PPM.h>
+#include <Scene/Camera.h>
+#include <Scene/Object.h>
 
 // TODO
 class World {
