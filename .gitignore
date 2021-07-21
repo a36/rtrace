@@ -365,3 +365,4 @@ FodyWeavers.xsd
 # Windows Batch files
 *.bat
 
+out.ppm
