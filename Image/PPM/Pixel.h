@@ -29,6 +29,15 @@ public:
     static const Pixel Green;
     static const Pixel Blue;
 
+    static inline Pixel fromF32(f32 r, f32 g, f32 b)
+    {
+        return {
+            static_cast<u8>(255.999 * r),
+            static_cast<u8>(255.999 * g),
+            static_cast<u8>(255.999 * b)
+        };
+    }
+
 private:
     u8 m_r = 0;
     u8 m_g = 0;

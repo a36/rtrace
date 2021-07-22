@@ -11,6 +11,7 @@ public:
     Image(const u32 width, const u32 height);
     ~Image() = default;
 
+    void reset();
     void setPixel(u32 x, u32 y, Pixel p);
     std::ostream& write(std::ostream& to) const;
 

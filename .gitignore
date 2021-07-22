@@ -366,3 +366,4 @@ FodyWeavers.xsd
 *.bat
 
 out.ppm
+*.ppm

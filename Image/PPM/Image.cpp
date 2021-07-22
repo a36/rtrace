@@ -18,6 +18,15 @@ Image::Image(const u32 width, const u32 height)
     applyResize();
 }
 
+void Image::reset()
+{
+    for (std::size_t i = 0; i < m_raster.size(); i++) {
+        for (std::size_t j = 0; j < m_raster[i].size(); j++) {
+            m_raster[i][j] = ppm::Pixel::Black;
+        }
+    }
+}
+
 void Image::setPixel(u32 x, u32 y, Pixel p)
 {
     m_raster[y][x] = p;

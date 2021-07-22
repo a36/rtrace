@@ -10,8 +10,11 @@ public:
     Vec3(double x, double y, double z);
 
     inline const double x() const { return v[0]; };
+    inline double x() { return v[0]; };
     inline const double y() const { return v[1]; };
+    inline double y() { return v[1]; };
     inline const double z() const { return v[2]; };
+    inline double z() { return v[2]; };
 
     const double operator[](int i) const;
     double& operator[](int i);
