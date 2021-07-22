@@ -10,6 +10,8 @@
 #include <Scene/World.h>
 #include <Util/Color.h>
 
+constexpr u32 gImageSize = 480;
+
 class rtrace_animator {
 public:
     rtrace_animator()
@@ -31,9 +33,8 @@ public:
 
     void run()
     {
-        constexpr u32 size = 512;
-        ppm::Image image(size, size);
-        Camera camera(size, size);
+        ppm::Image image(352, 480);
+        Camera camera(352, 480);
 
         for (u32 i = 0; i < m_frames; i++) {
             m_world.render(image, camera);
@@ -48,12 +49,12 @@ public:
             for (std::size_t j = 0; j < m_objects.size(); j++) {
                 Vec3& pos = m_objects[j]->position();
 
-                pos[0] += m_directions[j].x() / 2;
-                pos[1] += m_directions[j].y() / 2;
-                pos[2] += m_directions[j].z() / 2;
+                pos[0] += m_directions[j].x() / 3;
+                pos[1] += m_directions[j].y() / 3;
+                pos[2] += m_directions[j].z() / 3;
             }
 
-            image.reset();
+            //image.reset();
         }
 
         for (std::size_t i = 0; i < m_objects.size(); i++) {
@@ -64,12 +65,12 @@ public:
 private:
     void generateScene(std::vector<Object*>& objects)
     {
-        std::uniform_int_distribution<std::mt19937::result_type> objs(1, 50);
+        std::uniform_int_distribution<std::mt19937::result_type> objs(2, 10);
 
-        std::uniform_real_distribution<> radius(1, 3);
-        std::uniform_real_distribution<> posX(2.5, 22.5);
-        std::uniform_real_distribution<> posY(-5, 5);
-        std::uniform_real_distribution<> posZ(-35, -15);
+        std::uniform_real_distribution<> radius(0.5, 5);
+        std::uniform_real_distribution<> posX(2.5, 12.5);
+        std::uniform_real_distribution<> posY(-7.5, 7.5);
+        std::uniform_real_distribution<> posZ(-25, -15);
 
         const u32 objsInScene = objs(m_rng.rng);
         for (u32 i = 0; i < objsInScene; i++) {
@@ -86,7 +87,7 @@ private:
         }
     }
 
-    const u32 m_frames = 20;
+    const u32 m_frames = 50;
 
     struct RNG_GEN {
         std::random_device device;
