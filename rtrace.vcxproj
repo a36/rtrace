@@ -147,6 +147,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Animator.h" />
     <ClInclude Include="Image\PPM.h" />
     <ClInclude Include="Image\PPM\Image.h" />
     <ClInclude Include="Image\PPM\Pixel.h" />
@@ -161,6 +162,7 @@
     <ClInclude Include="Util\Color.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Animator.cpp" />
     <ClCompile Include="Image\PPM\Image.cpp" />
     <ClCompile Include="Image\PPM\Pixel.cpp" />
     <ClCompile Include="Main.cpp" />
