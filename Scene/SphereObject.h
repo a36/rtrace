@@ -9,17 +9,17 @@ class Ray;
 class SphereObject : public Object {
 public:
     SphereObject() = default;
-    SphereObject(double radius, Vec3 position);
+    SphereObject(f64 radius, Vec3 position);
     virtual ~SphereObject() = default;
 
     // Override this function
-    bool intersect(Ray& r, double& t1, double& t2) override;
+    bool intersect(Ray& r, f64& t1, f64& t2) override;
 
-    inline const double radiusSqr() const { return m_radius * m_radius; }
-    inline const double radius() const { return m_radius; }
+    inline const f64 radiusSqr() const { return m_radius * m_radius; }
+    inline const f64 radius() const { return m_radius; }
 
 private:
-    double m_radius;
+    f64 m_radius;
 };
 
 #endif

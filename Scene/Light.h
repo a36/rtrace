@@ -7,19 +7,19 @@
 class Light {
 public:
     Light() = default;
-    Light(const Color<float>& color, const float intensity);
+    Light(const util::ColorF& color, const f32 intensity);
 
     virtual ~Light() = default;
 
     inline auto& getColor() { return m_color; }
     inline const auto& getColor() const { return m_color; }
 
-    inline float& getIntensity() { return m_intensity; }
-    inline const float& getIntensity() const { return m_intensity; }
+    inline f32& getIntensity() { return m_intensity; }
+    inline const f32& getIntensity() const { return m_intensity; }
 
 private:
-    Color<float> m_color;
-    float m_intensity;
+    util::ColorF m_color;
+    f32 m_intensity;
 };
 
 #endif

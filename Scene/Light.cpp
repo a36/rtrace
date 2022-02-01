@@ -1,6 +1,6 @@
 #include <Scene/Light.h>
 
-Light::Light(const Color<float>& color, const float intensity)
+Light::Light(const util::ColorF& color, const f32 intensity)
     : m_color(color)
     , m_intensity(intensity)
 {

@@ -1,27 +1,28 @@
 #include <Math/Ray.h>
 #include <Scene/SphereObject.h>
 
-SphereObject::SphereObject(double r, Vec3 position)
+SphereObject::SphereObject(f64 r, Vec3 position)
     : m_radius(r)
 {
     // Assign base class variable
     m_position = position;
 }
 
-bool SphereObject::intersect(Ray& r, double& t1, double& t2)
+bool SphereObject::intersect(Ray& r, f64& t1, f64& t2)
 {
     Vec3 oc = m_position - r.getOrigin();
 
-    double a = Vec3::dot(oc, r.getDirection());
+    f64 a = Vec3::dot(oc, r.getDirection());
     if (a < 0)
         return false;
 
-    double b = Vec3::dot(oc, oc) - a * a;
-    if (b > radiusSqr())
+    f64 b = oc.length_squared() - a * a;
+    const f64 rSqr = radiusSqr();
+    if (b > rSqr)
         return false;
 
     // Will use c in World.cpp to calculate distance
-    double c = sqrt(m_radius * m_radius - b);
+    f64 c = sqrt(rSqr - b);
     t1 = a - c;
     t2 = a + c;
 

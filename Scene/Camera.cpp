@@ -6,14 +6,14 @@ Camera::Camera(const u32 width, const u32 height)
 {
 }
 
-Camera::Camera(const u32 width, const u32 height, double fov)
+Camera::Camera(const u32 width, const u32 height, f64 fov)
     : m_width(width)
     , m_height(height)
     , m_fov(fov)
 {
 }
 
-Camera::Camera(const u32 width, const u32 height, double fov, Vec3 rotation)
+Camera::Camera(const u32 width, const u32 height, f64 fov, Vec3 rotation)
     : m_width(width)
     , m_height(height)
     , m_fov(fov)
