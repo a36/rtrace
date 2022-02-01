@@ -40,11 +40,7 @@ void Animator::run()
         std::cout << "Renedered frame " << i << std::endl;
 
         for (std::size_t j = 0; j < m_objects.size(); j++) {
-            Vec3& pos = m_objects[j]->position();
-
-            pos[0] += m_directions[j].x();
-            pos[1] += m_directions[j].y();
-            pos[2] += m_directions[j].z();
+            m_objects[j]->position() += m_directions[j];
         }
 
         image.reset();
@@ -60,7 +56,9 @@ void Animator::generateScene(std::vector<Object*>& objects)
     std::uniform_real_distribution<> posY(m_values.m_objectPosY.first, m_values.m_objectPosY.second);
     std::uniform_real_distribution<> posZ(m_values.m_objectPosZ.first, m_values.m_objectPosZ.second);
 
-    for (u32 i = 0, objC = objs(m_rng.rng); i < objC; i++) {
+    for (u32 i = 0, objC = objs(m_rng.rng);
+         i < objC;
+         i++) {
         objects.push_back(
             new SphereObject(radius(m_rng.rng), { posX(m_rng.rng), posY(m_rng.rng), posZ(m_rng.rng) }));
     }
@@ -69,7 +67,14 @@ void Animator::generateScene(std::vector<Object*>& objects)
 void Animator::generateDirections(std::vector<Object*>& objects)
 {
     std::uniform_real_distribution<> rngDir(m_values.m_objectSpeed.first, m_values.m_objectSpeed.second);
+    Vec3 rDir = { rngDir(m_rng.rng),
+        rngDir(m_rng.rng),
+        rngDir(m_rng.rng) };
+
     for (std::size_t i = 0; i < objects.size(); i++) {
-        m_directions.push_back({ rngDir(m_rng.rng), rngDir(m_rng.rng), rngDir(m_rng.rng) });
+        rDir.x() += 0.1f;
+        rDir.y() -= 0.1f;
+        rDir.z() /= 1.15f;
+        m_directions.push_back(rDir);
     }
 }

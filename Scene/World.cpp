@@ -15,10 +15,7 @@ void World::render(ppm::Image& to, Camera& camera)
             f64 y = (1 - 2 * ((i + 0.5) * camera.getInvHeight())) * camera.getAngle();
 
             Vec3 rayDirection = { x, y, -1 };
-            rayDirection.normalise();
-            Ray primaryRay = Ray(rayDirection); // Initialize primary ray
-
-            // We can seperate this code below into another function if we want
+            Ray primaryRay = Ray(rayDirection.normalise()); // Initialize primary ray
 
             // This would be unoptimized with multiple objects
             // e.g. could spend time drawing objects that are hidden behind other objects
@@ -26,9 +23,9 @@ void World::render(ppm::Image& to, Camera& camera)
                 f64 t1 = 0, t2 = 0;
                 if (m_objects[k]->intersect(primaryRay, t1, t2)) {
                     raster[i][j] = ppm::Pixel::fromF32(
-                        t2 * 5,
-                        t1 / t2,
-                        (static_cast<f32>(m_objects.size()) / k));
+                        t1 - (t1 * x),
+                        t1 * (y * x * y),
+                        t2 / (t1 * x));
                 }
             }
         }

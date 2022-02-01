@@ -27,9 +27,9 @@ const Vec3 Vec3::operator-() const
 
 Vec3& Vec3::operator+=(const Vec3& v2)
 {
-    v[0] += v2.v[0];
-    v[1] += v2.v[1];
-    v[2] += v2.v[2];
+    v[0] += v2.x();
+    v[1] += v2.y();
+    v[2] += v2.z();
     return *this;
 }
 
@@ -65,14 +65,14 @@ const f64 Vec3::length_squared() const
 
 f64 Vec3::dot(const Vec3& v1, const Vec3& v2)
 {
-    return (v1.v[0] * v2.v[0] + v1.v[1] * v2.v[1] + v1.v[2] * v2.v[2]);
+    return (v1.x() * v2.x() + v1.y() * v2.y() + v1.z() * v2.z());
 }
 
 Vec3 Vec3::cross(const Vec3& v1, const Vec3& v2)
 {
-    return Vec3(v1.v[1] * v2.v[2] - v1.v[2] * v2.v[1],
-        v1.v[1] * v2.v[0] - v1.v[0] * v2.v[2],
-        v1.v[0] * v2.v[1] - v1.v[1] * v2.v[0]);
+    return Vec3(v1.y() * v2.z() - v1.z() * v2.y(),
+        v1.y() * v2.x() - v1.x() * v2.z(),
+        v1.x() * v2.y() - v1.y() * v2.x());
 }
 
 Vec3 Vec3::unit(Vec3 v1)
